@@ -31,7 +31,7 @@
         }, 500);
         $("#findFriends").click(function() {
             $.ajax({
-                url: 'https://graph.facebook.com/v2.6/me/friends?access_token=EAACEdEose0cBAMmgPTZA0yxJYZBDV7KrUDrbAunZAExE4EZC9fDR20monhiNqmJjJ1qWbpCwiX6UIvgQGzy9JZAmUVKo1V0oSraajdj6n6pZBN7AosiakBipT7KqYU4WgohE0UPye5nsdnqpIBCP5KrKKiT20b4Geu6Y8G3l0nzKg3GHZCsOwvE',
+                url: 'https://graph.facebook.com/v2.6/me/friends?access_token=EAACEdEose0cBAK7CaKu29gaUlG9ORpKoUZAch3qQLiHt7baGGCcBSi0ZCHHrcBay2PToDjebFBvrU1HhZAqP6vHQdI64j2Day9XApUf6aDEykxBVqM1MZA9OZCkPZBH0Lq2kET4m0iJH84nvOKmKQI8HBSdC9GXNghTTztvL6dQpNho57MfdaE',
                 method: 'GET',
                 success: function(data) {
                     $(".friends").remove()
@@ -40,7 +40,6 @@
                         url: "http://localhost:8080",
                         method: "GET",
                         success: function(data) {
-                            console.log(data);
                             $(".yourSteps").html("Total Steps: " + JSON.parse(data).summary[0].totalSteps);
                             $(".yourCalories").html("Calories Burnt: " + JSON.parse(data).summary[0].calories);
                             $(".yourSteps, .yourCalories").fadeTo('slow', 1, function() {});
@@ -193,14 +192,14 @@
     }(document, 'script', 'facebook-jssdk'));
 
     function testAPI() {
-        $("#loginText").remove();
+        $("#loginText").html("Choose Your Fitness Provider");
         FB.api('/me', function(response) {
             $("#title").text(response.name);
             uid = response.id;
             profilePicture = "http://graph.facebook.com/" + uid + "/picture";
             $("#loading").remove()
             $("#profileImage").prop("src", profilePicture);
-            $("#fitnessLogin").append('<span><a href="https://striiv-api-prod.appspot.com/api/1/authorize?oauth_token=8Fwye9pmJqqsmBpk" target="_blank"><img src="images/striiv.png"></a><a href="https://www.fitbit.com/oauth2/authorize?client_id=227TV5&redirect_url=http://localhost&scope=activity&response_type=code" target="_blank"><img width="300" height="90" src="http://wpuploads.appadvice.com/wp-content/uploads/2015/01/FITBIT_LOGO.png"></a><a href="http://fit.google.com"><img width="250" height="150" src="/images/googlefit.png"></a><b<a href="http://www.apple.com/ios/health/"><img width="128" height="128" src="images/healthapp.png"></a></span>');
+            $("#fitnessLogin").append('<span><a href="https://striiv-api-prod.appspot.com/api/1/authorize?oauth_token=8Fwye9pmJqqsmBpk" target="_blank"><img src="images/striiv.png"></a><a href="https://www.fitbit.com/oauth2/authorize?client_id=227TV5&redirect_url=http://localhost&scope=activity&response_type=code" target="_blank"><img width="300" height="90" src="http://wpuploads.appadvice.com/wp-content/uploads/2015/01/FITBIT_LOGO.png"></a><a href="http://fit.google.com"><img width="250" height="150" src="/images/googlefit.png"></a><a href="http://www.apple.com/ios/health/"><img width="128" height="128" src="images/healthapp.png"></a></span>');
         });
     }
     </script>
