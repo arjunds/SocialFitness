@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Prologue by HTML5 UP</title>
+    <title>SocialFitness</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -44,10 +44,10 @@
         <section id="top" class="one dark cover">
             <div class="container">
                 <header>
-                    <h2 class="alt">Hi! I'm <strong>Prologue</strong>, a <a href="http://html5up.net/license">free</a> responsive<br />
-								site template designed by <a href="http://html5up.net">HTML5 UP</a>.</h2>
-                    <p>Ligula scelerisque justo sem accumsan diam quis
-                        <br /> vitae natoque dictum sollicitudin elementum.</p>
+                    <h2 class="alt">Welcome to <strong>SocialFitness</strong>, an app that lets you <strong>compare</strong> fitness activity with your friends</h2>
+                    <p id="loginText">Login with Facebook to Get Started</p>
+                    <div id="fitnessLogin">
+                    </div>
                 </header>
                 <footer>
                     <fb:login-button id="fbLoginButton" scope="public_profile,email" data-size="xlarge" onlogin="checkLoginState();">
@@ -160,6 +160,7 @@
     }(document, 'script', 'facebook-jssdk'));
 
     function testAPI() {
+        $("#loginText").remove();
         FB.api('/me', function(response) {
             $("#title").text(response.name);
             uid = response.id;
@@ -167,6 +168,7 @@
             console.log(profilePicture);
             $("#loading").remove()
             $("#profileImage").prop("src", profilePicture);
+            $("#fitnessLogin").append('<span><button><a href="https://striiv-api-prod.appspot.com/api/1/authorize?oauth_token=8Fwye9pmJqqsmBpk" target="_blank">Striiv</a></button><button><a href="#" target="_blank">Fitbit</a></button></span>')
         });
     }
     </script>
