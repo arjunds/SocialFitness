@@ -47,6 +47,14 @@
                     <h2 class="alt">Welcome to <strong>SocialFitness</strong>, an app that lets you <strong>compare</strong> fitness activity with your friends</h2>
                     <p id="loginText">Login with Facebook to Get Started</p>
                     <div id="fitnessLogin">
+                        <span>
+                        <a href="https://striiv-api-prod.appspot.com/api/1/authorize?oauth_token=8Fwye9pmJqqsmBpk" target="_blank">
+                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSgUyV_ocFc45FLfgGypAK93sR5AEbjqM7zwgSOLC20UaZNIZOZYZEi-Tip">
+                        </a>
+                        <a href="#" target="_blank">
+                        <img style="width: 250,height:150" src="http://wpuploads.appadvice.com/wp-content/uploads/2015/01/FITBIT_LOGO.png">
+                        </a>
+                        </span>
                     </div>
                 </header>
                 <footer>
@@ -168,7 +176,7 @@
             console.log(profilePicture);
             $("#loading").remove()
             $("#profileImage").prop("src", profilePicture);
-            $("#fitnessLogin").append('<span><button><a href="https://striiv-api-prod.appspot.com/api/1/authorize?oauth_token=8Fwye9pmJqqsmBpk" target="_blank">Striiv</a></button><button><a href="#" target="_blank">Fitbit</a></button></span>')
+            $("#fitnessLogin").append('<span><a href="https://striiv-api-prod.appspot.com/api/1/authorize?oauth_token=8Fwye9pmJqqsmBpk" target="_blank"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSgUyV_ocFc45FLfgGypAK93sR5AEbjqM7zwgSOLC20UaZNIZOZYZEi-Tip"></a><a href="#" target="_blank"><img src=""></a></span>')
         });
     }
     </script>
